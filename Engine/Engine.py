@@ -8,6 +8,7 @@ import pygame
 from pygame.locals import *
 
 from Input import Input
+from Resources import Resources
 
 pygame.init()
 
@@ -20,8 +21,10 @@ class Engine:
         self.GRAPH_PROCESS      = threading.Thread(target=self.graph_loop)
         self.GRAPH_PROCESS.setDaemon(True)
 
+        # Preparation before starting engine
         self.clock              = pygame.time.Clock()
         self.script_classes     = self.load_script_classes()
+        Resources.load_resources()
 
         # Start engine
         self.GRAPH_PROCESS.start()

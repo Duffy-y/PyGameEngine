@@ -28,8 +28,6 @@ class Resources:
                     value = pygame.mixer.load(r.replace(".\\", "") + key)
                     Resources.LOADED_FILE[key] = value
 
-
-
     @staticmethod
     def load(file_name):
         """ Return the pygame object of the corresponding file in "Resources" directory.

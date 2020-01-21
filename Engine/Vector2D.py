@@ -1,9 +1,27 @@
 import math
 
 class Vector2:
-    def __init__(self, x, y):
+    def __init__(self, x, y, z):
+        """Return a Vector with 2 dimensions (z is discarded after).
+
+        Parameters
+        ----------
+        x : int
+            Represents the component of the X axis.
+        y : int
+            Represents the component of the Y axis.
+        z : int
+            Will be used by engine to know the order of objects on the screen.
+            After initializing, you don't have to worry about the Z axis.
+
+        Returns
+        -------
+        Vector2
+            Vector holding 2 dimension.
+        """
         self.x = x
         self.y = y
+        self.z = 0
 
     def normalize(self):
         vector_norm = math.sqrt(self.x ** 2 + self.y ** 2)
