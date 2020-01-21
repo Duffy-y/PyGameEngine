@@ -1,12 +1,12 @@
 import pygame
 import numpy as np
 
-def SliceAnimationSheet(imagePath, slice_x, slice_y, direction = "horizontal"):
+def slice_animation_sheet(image_path, slice_x, slice_y, direction = "horizontal"):
     """Take an image and slice it in different image to make animation.
 
     Parameters
     ----------
-    imagePath : string
+    image_path : string
         Absolute or relative path to the image to slice.
     slice_x : int
         Sub-image size on X axis
@@ -21,7 +21,7 @@ def SliceAnimationSheet(imagePath, slice_x, slice_y, direction = "horizontal"):
         List of all sub-image, with one dimension.
         Example : [image1, image2, image3]
     """
-    image = pygame.image.load(imagePath)
+    image = pygame.image.load(image_path)
     width, height = image.get_width(), image.get_height()
     sub_image_count_x, sub_image_count_y = width % slice_x, height % slice_y
     if sub_image_count_x == 0 and sub_image_count_y == 0:
