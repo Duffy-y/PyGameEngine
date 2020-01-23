@@ -1,5 +1,6 @@
 import sys
 import os
+import gc
 import threading
 import importlib
 sys.path.append(".")
@@ -50,13 +51,10 @@ class Engine:
                     sys.exit()
                     pygame.quit()
 
-            # Call update on every objects initalized
-
             self.clock.tick(self.FPS)
 
     def graph_loop(self):
         while True:
-            print(Input.EVENT_LIST)
             self.clock.tick(self.FPS)
 
 engine = Engine((500, 500), 60, "Engine under development")

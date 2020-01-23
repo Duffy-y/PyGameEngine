@@ -18,6 +18,7 @@ class Vector2:
         -------
         Vector2
             Vector holding 2 dimension.
+
         """
         self.x = x
         self.y = y

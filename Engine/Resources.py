@@ -30,7 +30,7 @@ class Resources:
 
     @staticmethod
     def load(file_name):
-        """ Return the pygame object of the corresponding file in "Resources" directory.
+        """ Returns the pygame object of the corresponding file in "Resources" directory.
 
         Parameters
         ----------
