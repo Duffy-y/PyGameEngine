@@ -14,7 +14,7 @@ class Resources:
     LOADED_FILE = {}
 
     @staticmethod
-    def load_resources():
+    def init():
         """ You should not use this function as it's a function dedicated to the engine.
             Use this function only if it's your last choice.
         """

@@ -1,46 +1,31 @@
-import sys
 import os
-import gc
+import sys
 import threading
-import importlib
-sys.path.append(".")
+os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 import pygame
 from pygame.locals import *
 
 from Input import Input
 from Resources import Resources
+from GameObject import GameObject
 
 pygame.init()
+Resources.init()
+GameObject.init()
 
 class Engine:
     def __init__(self, size, fps, caption):
         # Game parameters
         pygame.display.set_caption(caption)
         self.ROOT               = pygame.display.set_mode(size)
-        self.FPS                = fps
-        self.GRAPH_PROCESS      = threading.Thread(target=self.graph_loop)
-        self.GRAPH_PROCESS.setDaemon(True)
+        self.UPDATE_RATE        = fps
 
         # Preparation before starting engine
         self.clock              = pygame.time.Clock()
-        self.script_classes     = self.load_script_classes()
-        Resources.load_resources()
 
         # Start engine
-        self.GRAPH_PROCESS.start()
         self.engine_loop()
-
-    def load_script_classes(self):
-        returnedArray = []
-        for r, _, f in os.walk("."):
-            for file in f:
-                if ".py" in file and ".pyc" not in file and "s_" in file:
-                    module_name = r.replace(".\\", "") + "." + file.replace(".py", "")
-                    class_name  = file.replace(".py", "").replace("s_", "")
-                    module      = importlib.import_module(module_name)
-                    returnedArray.append(eval("module." + class_name))
-        return returnedArray
 
     def engine_loop(self):
         while True:
@@ -51,10 +36,13 @@ class Engine:
                     sys.exit()
                     pygame.quit()
 
-            self.clock.tick(self.FPS)
+            GameObject.update_objects()
 
-    def graph_loop(self):
-        while True:
-            self.clock.tick(self.FPS)
+            self.ROOT.fill((0, 0, 0))
+            for obj in GameObject.scripted_objects:
+                self.ROOT.blit(obj.sprite, (obj.transform.position.x - obj.sprite_rect[2] / 2, obj.transform.position.y - obj.sprite_rect[3] / 2))
+            pygame.display.update()
 
-engine = Engine((500, 500), 60, "Engine under development")
+            self.clock.tick_busy_loop(self.UPDATE_RATE)
+
+ENGINE_OBJ = Engine((1000, 1000), 144, "Engine under development")

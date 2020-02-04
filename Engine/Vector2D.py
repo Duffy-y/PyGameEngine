@@ -22,7 +22,7 @@ class Vector2:
         """
         self.x = x
         self.y = y
-        self.z = 0
+        self.z = z
 
     def normalize(self):
         vector_norm = math.sqrt(self.x ** 2 + self.y ** 2)
@@ -34,59 +34,59 @@ class Vector2:
     def __add__(self, other):
         x = self.x + other.x
         y = self.y + other.y
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __sub__(self, other):
         x = self.x - other.x
         y = self.y - other.y
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __mul__(self, other):
         x = self.x * other
         y = self.y * other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __pow__(self, other):
         x = self.x ** other
         y = self.y ** other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __truediv__(self, other):
         x = self.x / other
         y = self.y / other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __floordiv__(self, other):
         x = self.x // other
         y = self.y // other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __iadd__(self, other):
         x = self.x + other.x
         y = self.y + other.y
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __isub__(self, other):
         x = self.x - other.x
         y = self.y - other.y
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __imul__(self, other):
         x = self.x * other
         y = self.y * other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __ipow__(self, other):
         x = self.x ** other
         y = self.y ** other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __itruediv__(self, other):
         x = self.x / other
         y = self.y / other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
 
     def __ifloordiv__(self, other):
         x = self.x // other
         y = self.y // other
-        return Vector2(x, y)
+        return Vector2(x, y, 0)
