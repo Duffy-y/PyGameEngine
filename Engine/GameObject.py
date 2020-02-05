@@ -18,6 +18,7 @@ class GameObject:
                     module = import_module(module_name)
                     class_imported = getattr(module, class_name)
                     GameObject.scripted_classes.append(class_imported)
+                    # GameObject.init_object(GameObject.scripted_classes[0]())
 
     @staticmethod
     def init_object(object):

@@ -3,6 +3,7 @@ from Transform import Transform
 from Vector2D import Vector2
 from Resources import Resources
 from Input import Input
+from AnimatorController import AnimatorController
 
 import pygame
 from pygame.locals import *
@@ -16,6 +17,7 @@ class test:
         self.transform  = Transform(Vector2(0, 0, 0), Vector2(0, 0, 0), Vector2(0, 0, 0))
         self.sprite     = Resources.load("flamme.png")
         self.sprite     = pygame.transform.scale(self.sprite, (50, 50))
+        self.animator   = AnimatorController()
 
     def update(self):
         self.transform.translate(Vector2(1, 1, 0))
